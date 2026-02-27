@@ -21,7 +21,33 @@ function App() {
     setNumPages(numPages);
   }
 
-  return <div>Hello World</div>;
+  return (
+    <div className="pdf-container">
+      <Document
+        file="/Richa%20Textile%20Business%20Profile.pdf"
+        onLoadSuccess={onDocumentLoadSuccess}
+        className="pdf-document"
+        loading={<div className="loading-text">Loading PDF Document...</div>}
+      >
+        {Array.from(new Array(numPages), (el, index) => (
+          <div key={`page_${index + 1}`} className="page-wrapper">
+            <Page
+              pageNumber={index + 1}
+              width={Math.min(
+                pageWidth * 0.95,
+                1000,
+              )} /* Responsive width scaling max to 1000px */
+              renderTextLayer={false}
+              renderAnnotationLayer={false}
+            />
+            <div className="page-number">
+              {index + 1} / {numPages}
+            </div>
+          </div>
+        ))}
+      </Document>
+    </div>
+  );
 }
 
 export default App;
