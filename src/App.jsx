@@ -3,16 +3,11 @@ import "./App.css";
 
 function App() {
   return (
-    <div className="iframe-container">
-      {/* Overlays to hide watermarks of the third-party iframe */}
-      <div className="watermark-overlay-left"></div>
-      <div className="watermark-overlay-right"></div>
-
+    <div className="pdf-container">
       <iframe
-        src="https://www.flipbookpdf.net/web/site/9f612c31d932a94682228806c7549ba2c87e6929202602.pdf.html"
-        title="Corporate Brochure"
-        allowFullScreen
-        className="flipbook-iframe"
+        src="/Richa%20Textile%20Business%20Profile.pdf#navpanes=0"
+        title="Richa Textile Business Profile"
+        className="pdf-viewer"
       ></iframe>
     </div>
   );
